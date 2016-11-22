@@ -1,0 +1,22 @@
+{% extends 'conhecimento/base.html' %}
+{% block content %}
+		
+	{% for publicacao in html %}
+	<div class="publicacao">
+		<legend><h1><a href="{% url 'conhecimento.views.detalhe' pk=publicacao.pk %}">{{publicacao.titulo}}</a></h1></legend>	
+		<p>{{publicacao.conteudo|linebreaksbr}}</p>
+		<p class="interno">Publicado: {{ publicacao.data_publicacao }}</p>
+		<p class="interno">Aberto por: {{ publicacao.autor }}</p>
+		<P>{{ publicacao.temas.id }} asdasdasd</P>
+		
+    	{% for temas in publicacao.tema.all %}
+		<span class="label label-primary">{{ temas|lower }}</span>&nbsp;
+        <span class="label label-primary">{{ temas.id|lower }}</span>&nbsp;
+		{% endfor %}
+
+	<br><br>
+
+		<a href="{% url 'novo_aviso' pk=publicacao.pk %}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
+	</div>
+		{% endfor %}
+{% endblock content %}

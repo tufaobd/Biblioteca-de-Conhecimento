@@ -1,0 +1,6 @@
+migrations/
+servidor/
+backup/
+*.pyc
+*.sqlite3
+__pycache__

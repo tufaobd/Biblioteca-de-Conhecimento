@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Biblioteca de Conhecimento</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+	<link rel="stylesheet" href="{% static "css/conhecimento.css" %}">
+</head>
+<body>
+<div class="container">
+		<ul class="nav nav-pills pull-right">
+			<li><a href="{% url 'novo' %}" alt="Incluir Novo Conhecimento">+</a></li>
+					<li></li>
+					<li><a href="{% url 'index' %}?tema=Diverso">Diverso</a></li>
+					<li><a href="{% url 'index' %}?tema=Python">Python</a></li>
+					<li><a href="{% url 'index' %}?tema=Django">Django</a></li>
+					<li><a href="{% url 'index' %}?tema=HTML">HTML</a></li>
+					<li><a href="{% url 'index' %}?tema=CSS">CSS</a></li>
+					<li><a href="">MySQL</a></li>
+					<li><a href="{% url 'index' %}?tema=PostGreSQL">PostgreSQL</a></li>
+					<li><a href="{% url 'index' %}?tema=Java">Java</a></li>
+					<li><a href="{% url 'index' %}?tema=MarkDown">MarkDown</a></li>
+		</ul>
+		<a href="{% url 'index' %}"><h3 class="text-muted">Base de Conhecimento</h3></a>
+	<div class="row content">
+	{% block content %}
+	{% endblock %}
+	</div>
+</div>
+</body>
+</html>

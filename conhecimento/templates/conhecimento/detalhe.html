@@ -1,0 +1,19 @@
+{% extends 'conhecimento/base.html' %}
+
+{% block content %}
+    <div>
+        {% if publicacao.data_publicacao %}
+            <div class="date">
+                {{ publicacao.data_publicacao }}
+            </div>
+        {% endif %}
+        <h1>{{ publicacao.titulo }}</h1>
+        <p>{{ publicacao.conteudo|linebreaksbr }}</p>
+        {% for temas in publicacao.tema.all %}
+		<span class="label label-primary">{{ temas|lower }}</span>&nbsp;
+        <span class="label label-primary">{{ temas.id|lower }}</span>&nbsp;
+		{% endfor %}
+		<br><br>
+    </div>
+    <hr>
+{% endblock %}
